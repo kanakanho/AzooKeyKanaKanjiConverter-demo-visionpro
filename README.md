@@ -1,29 +1,49 @@
-//
-//  ContentView.swift
-//  AzooKeyKanaKanjiConverter-demo-2
-//
-//  Created by blueken on 2024/10/24.
-//
+# AzooKeyKanaKanjiConverter-demo-visionpro
 
-import SwiftUI
-import RealityKit
-import RealityKitContent
-import KanaKanjiConverterModuleWithDefaultDictionary
+## アプリの動作説明
 
+> `ContentView.swift` 以外でデフォルトのアプリからソースコードの変更は行なっていません
+
+### フィールド
+
+| フィールド名       | 役割                                 |
+| ------------------ | ------------------------------------ |
+| `inputStr`         | 入力されている最中の文字列を保持する |
+| `conversionBefore` | 変換前の文字列を保持する             |
+| `conversionBefore` | 変換後の文字列を保持する             |
+
+```swift:ContentView.swift
 struct ContentView: View {
     @State var inputStr = ""
     @State var conversionBefore = "変換前の文字列が表示されます"
     @State var conversionResults = "変換後の文字列が表示されます"
-    
+    ...
+```
+
+### 入力
+
+ユーザーからのテキストの入力を受け付ける. 入力されたテキストは `inputStr` に格納する
+
+```swift:ContentView.swift
+struct ContentView: View {
     var body: some View {
         VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
-            
+            ...
             TextField("変換する文字列を入力",text: $inputStr)
-            
+    ...
+```
+
+### 変換
+
+ボタンが押された時に変換を行う  
+処理内容はコメントに従う
+
+```swfit:ContentView.swift
+struct ContentView: View {
+    ...
+    var body: some View {
+        VStack {
+            ...
             Button(action: {
                 // 変換器を初期化する
                 let converter = KanaKanjiConverter()
@@ -43,26 +63,5 @@ struct ContentView: View {
             }) {
                 Text("Button")
             }
-            
-            HStack {
-                VStack{
-                    Text("変換前")
-                    Text(conversionBefore)
-                }
-                .padding(.trailing, 50)
-                VStack{
-                    Text("変換後")
-                    Text(conversionResults)
-                }
-            }
-
-            ToggleImmersiveSpaceButton()
-        }
-        .padding()
-    }
-}
-
-#Preview(windowStyle: .automatic) {
-    ContentView()
-        .environment(AppModel())
-}
+        ...
+```
