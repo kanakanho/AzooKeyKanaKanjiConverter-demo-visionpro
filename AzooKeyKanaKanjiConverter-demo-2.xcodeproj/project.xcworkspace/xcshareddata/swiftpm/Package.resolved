@@ -1,0 +1,33 @@
+{
+  "originHash" : "bfd4a66ddd9782e4bfa7baa0e9ca378391a289be6a48d1c367e2b3342b056c3e",
+  "pins" : [
+    {
+      "identity" : "azookeykanakanjiconverter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ensan-hcl/AzooKeyKanaKanjiConverter",
+      "state" : {
+        "revision" : "b5f634f45e14e95d11de181e1a8d122293be720b",
+        "version" : "0.7.0"
+      }
+    },
+    {
+      "identity" : "swift-algorithms",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-algorithms",
+      "state" : {
+        "revision" : "f6919dfc309e7f1b56224378b11e28bab5bccc42",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "swift-numerics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-numerics.git",
+      "state" : {
+        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 3
+}
