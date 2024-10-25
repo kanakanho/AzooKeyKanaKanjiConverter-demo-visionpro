@@ -13,7 +13,8 @@ import KanaKanjiConverterModuleWithDefaultDictionary
 struct ContentView: View {
     @State var inputStr = ""
     @State var conversionBefore = "変換前の文字列が表示されます"
-    @State var conversionResults = "変換後の文字列が表示されます"
+    @State var conversionResults = ["変換後の文字列が表示されます"]
+    @State var conversionResultsIndex = 0
     
     var body: some View {
         VStack {
@@ -39,7 +40,7 @@ struct ContentView: View {
                 // 結果の一番目を表示
                 print(results.mainResults.first!.text)
                 // 変換後の文字列を格納する
-                conversionResults = results.mainResults.first!.text
+                conversionResults = results.mainResults.map(\.text)
             }) {
                 Text("Button")
             }
@@ -52,7 +53,19 @@ struct ContentView: View {
                 .padding(.trailing, 50)
                 VStack{
                     Text("変換後")
-                    Text(conversionResults)
+                    Text(conversionResults[conversionResultsIndex])
+                    HStack{
+                        Button(action: {
+                            conversionResultsIndex = max(conversionResultsIndex - 1, 0)
+                        }) {
+                            Text("前")
+                        }
+                        Button(action: {
+                            conversionResultsIndex = min(conversionResultsIndex + 1, conversionResults.count - 1)
+                        }) {
+                            Text("次")
+                        }
+                    }
                 }
             }
 
