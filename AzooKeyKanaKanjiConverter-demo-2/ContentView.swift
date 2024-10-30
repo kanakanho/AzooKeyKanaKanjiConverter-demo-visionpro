@@ -55,7 +55,7 @@ struct ContentView: View {
                 List {
                     Picker("", selection: $conversionResultsIndex) {
                         ForEach(0..<viewConversionResults.count/2, id: \.self) { index in
-                            Text("\(conversionResults.firstIndex(of: viewConversionResults[index]) ?? 0)  \(  viewConversionResults[index])").tag(index).lineLimit(1)
+                            Text("\(conversionResults.firstIndex(of: viewConversionResults[index]) ?? 0)  \(  viewConversionResults[index])").tag(conversionResults.firstIndex(of: viewConversionResults[index]) ?? 0).lineLimit(1)
                             
                         }
                     }
@@ -64,7 +64,7 @@ struct ContentView: View {
                 List {
                     Picker("", selection: $conversionResultsIndex) {
                         ForEach(viewConversionResults.count/2..<viewConversionResults.count, id: \.self) { index in
-                            Text("\(conversionResults.firstIndex(of: viewConversionResults[index]) ?? 0)  \(  viewConversionResults[index])").tag(index).lineLimit(1)
+                            Text("\(conversionResults.firstIndex(of: viewConversionResults[index]) ?? 0)  \(  viewConversionResults[index])").tag(conversionResults.firstIndex(of: viewConversionResults[index]) ?? 0).lineLimit(1)
                         }
                     }
                     .pickerStyle(.inline)
